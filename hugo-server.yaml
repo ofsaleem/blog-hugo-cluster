@@ -12,7 +12,7 @@ spec:
       args: ["server", "-D"]
       volumeMounts:
         - mountPath: "/src"
-        name: backend-files-volume
+          name: backend-files-volume
   volumes:
     - name: backend-files-volume
     persistentVolumeClaim:
