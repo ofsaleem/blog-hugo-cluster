@@ -11,3 +11,11 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   local:
     path: /home/omar/workspace/blog-hugo-backend
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+            - docker-desktop
