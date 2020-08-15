@@ -15,8 +15,8 @@ spec:
           name: backend-files-volume
   volumes:
     - name: backend-files-volume
-    persistentVolumeClaim:
-      claimName: backend-files-volume-claim
+      persistentVolumeClaim:
+        claimName: backend-files-volume-claim
   restartPolicy: OnFailure
 ---
 apiVersion: v1
