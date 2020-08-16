@@ -10,7 +10,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: /home/omar/workspace/blog-hugo-backend
+    path: /run/desktop/mnt/wsl/blog-hugo-backend
   nodeAffinity:
     required:
       nodeSelectorTerms:

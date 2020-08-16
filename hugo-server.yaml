@@ -8,24 +8,19 @@ spec:
   containers:
     - name: hugo-server
       image: klakegg/hugo
-      command: ["hugo"]
-      args: ["server", "-D"]
+      command: ["sleep"]
+      args: ["300"]
+      # command: ["hugo"]
+      # args: ["server", "-v", "--config", "/src/config.toml", "-D"]
       volumeMounts:
         - mountPath: "/src"
           name: backend-files-volume
+      ports:
+        - containerPort: 1313
+          name: "hugo-server"    
   volumes:
     - name: backend-files-volume
-      persistentVolumeClaim:
-        claimName: backend-files-volume-claim
+      hostPath:
+        path: "/run/desktop/mnt/wsl/blog-hugo-backend"
+        type: Directory
   restartPolicy: OnFailure
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: backend-files-volume-claim
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
