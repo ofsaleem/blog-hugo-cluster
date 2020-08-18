@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta6
+kind: Config
+metadata:
+  name: blog-hugo-cluster
+build:
+  artifacts:
+  - image: blog-hugo-backend
+deploy:
+  kubectl:
+    manifests:
+    - hugo-deployment.yaml
+    - hugo-service.yaml
