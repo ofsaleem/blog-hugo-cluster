@@ -3,10 +3,14 @@ kind: Config
 metadata:
   name: blog-hugo-cluster
 build:
+  tagPolicy:
+    dateTime: {}
   artifacts:
   - image: blog-hugo-backend
+  local: {}
 deploy:
   kubectl:
     manifests:
-    - hugo-deployment.yaml
-    - hugo-service.yaml
+    - blog-hugo-cluster/hugo-namespace.yaml
+    - blog-hugo-cluster/hugo-deployment.yaml
+    - blog-hugo-cluster/hugo-service.yaml

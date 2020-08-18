@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hugo-server-deployment
+  namespace: hugo
   labels:
     app: blog
 spec:
@@ -11,6 +12,7 @@ spec:
       app: blog
   template:
     metadata:
+        namespace: hugo
         labels:
           app: blog
     spec:

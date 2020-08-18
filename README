@@ -1,0 +1,3 @@
+dockerfile and skaffold.yaml expect to be in a folder above this one, that contains both this and blog-hugo-backend.
+
+project is abandoned because there was no need to reengineer docker and k8s to give me functionality hugo contains already.
