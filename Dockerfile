@@ -1,4 +1,4 @@
 FROM klakegg/hugo
 EXPOSE 1313
-COPY . /src
+COPY ~/workspace/blog-hugo-backend /src
 CMD hugo server -D /src
