@@ -7,20 +7,11 @@ metadata:
 spec:
   containers:
     - name: hugo-server
-      image: klakegg/hugo
-      command: ["sleep"]
-      args: ["300"]
-      # command: ["hugo"]
-      # args: ["server", "-v", "--config", "/src/config.toml", "-D"]
-      volumeMounts:
-        - mountPath: "/src"
-          name: backend-files-volume
+      image: blog-hugo-backend:latest
+      command: ["hugo"]
+      args: ["server", "-v", "-D"]
       ports:
         - containerPort: 1313
-          name: "hugo-server"    
-  volumes:
-    - name: backend-files-volume
-      hostPath:
-        path: "/run/desktop/mnt/wsl/blog-hugo-backend"
-        type: Directory
+          name: "hugo-server"
+      imagePullPolicy: Never    
   restartPolicy: OnFailure
