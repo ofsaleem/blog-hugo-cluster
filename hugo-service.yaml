@@ -1,12 +1,21 @@
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    app: blog
   name: hugo-service
+  namespace: hugo
 spec:
-  type: "LoadBalancer"
+  externalTrafficPolicy: Cluster
   ports:
-  - name: "hugo-server"
-    port: 1313
-    targetPort: 1313
+    - name: "hugo-server-port"
+      port: 1313
+      protocol: TCP
+      targetPort: 1313
   selector:
     app: blog
+  type: NodePort
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost
